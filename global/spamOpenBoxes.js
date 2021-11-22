@@ -15,7 +15,7 @@ const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
             space: 20,
             breakfast: 15,
             medieval: 15,
-            wonderland: 20
+            wonderland: 20,
         })[box],
         opens = amount > Math.floor(tokens / price) ? Math.floor(tokens / price) : amount;
     let interval = new Promise((resolve) => {
@@ -43,7 +43,7 @@ const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
         }, 128)
     });
     interval.then(async (x) => {
-        if (x.fail) return alert("You don't have enough coins to open this box!");
+        if (x.fail) return alert("You don't have enough tokens to open this box!");
         let count = {};
         Promise.all(x.blooks).then(Blooks => {
             Blooks.map(e => e.unlockedBlook).forEach((i) => {
@@ -52,4 +52,4 @@ const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
             alert('Results:\n' + Object.entries(count).map(x => `    ${x[1]} ${x[0]}`).join('\n'))
         })
     })
-})([((text) => text.charAt(0).toUpperCase() + text.slice(1))(prompt('What box do you want to open? (e.g. "Space")')), Number(prompt('How many do you want to open?'))])
+})([((text) => text.charAt(0).toUpperCase() + text.slice(1))(prompt('Which box do you want to open? (e.g. "Space")')), Number(prompt('How many do you want to open?'))])
