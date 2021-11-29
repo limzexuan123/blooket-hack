@@ -15,7 +15,8 @@ const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
             space: 20,
             breakfast: 15,
             medieval: 15,
-            wonderland: 20
+            wonderland: 20,
+            blizzard: 25
         })[box],
         opens = amount > Math.floor(tokens / price) ? Math.floor(tokens / price) : amount;
     let interval = new Promise((resolve) => {
